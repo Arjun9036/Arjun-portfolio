@@ -122,7 +122,7 @@ export default function Hero() {
           Building intelligent systems with product-grade software craft.
         </h1>
         <p className={styles.heroDescription}>
-          I'm Arjun Goyal, a CS Engineering student at VIT Chennai with hands-on experience in AI/ML systems, full-stack development, and data pipelines — focused on shipping intelligent, user-facing products.
+          I'm Arjun Goyal, a CS Engineering student at VIT-AP with hands-on experience in AI/ML systems, full-stack development, and data pipelines — focused on shipping intelligent, user-facing products.
         </p>
         <div className={styles.heroCtas}>
           <a
