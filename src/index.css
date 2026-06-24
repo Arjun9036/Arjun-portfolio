@@ -1,0 +1,276 @@
+/* ================================================================
+   ARJUN GOYAL — PORTFOLIO
+   Global design tokens, resets, and shared utilities
+   Premium Dark Cockpit Edition — ambient glows, custom mouse glow,
+   film grain noise overlay, modern typography.
+   ================================================================ */
+
+/* ----- RESET & BASE ----- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-base:        #04060a;
+  --bg-elevated:    #070a0f;
+  --bg-card:        rgba(9, 13, 22, 0.55);
+  --bg-card-hover:  rgba(13, 19, 32, 0.7);
+  --bg-card-inner:  #05080e;
+  --border:         rgba(255, 255, 255, 0.04);
+  --border-hover:   rgba(99, 102, 241, 0.25);
+  --border-light:   rgba(255, 255, 255, 0.08);
+  --text-primary:   #f3f6fc;
+  --text-secondary: #94a3b8;
+  --text-muted:     #475569;
+  --accent:         #6366f1;
+  --accent-light:   #818cf8;
+  --accent-2:       #a78bfa;
+  --accent-dim:     rgba(99, 102, 241, 0.15);
+  --accent-dimmer:  rgba(99, 102, 241, 0.05);
+  --green:          #10b981;
+  --green-glow:     rgba(16, 185, 129, 0.25);
+  --yellow:         #f59e0b;
+  --red:            #ef4444;
+  --tag-bg:         rgba(255, 255, 255, 0.03);
+  
+  --radius-sm:      6px;
+  --radius-md:      12px;
+  --radius-lg:      18px;
+  --radius-xl:      24px;
+  
+  --font-body:      'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-heading:   'Space Grotesk', system-ui, sans-serif;
+  --font-mono:      'JetBrains Mono', 'Courier New', monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ================================================================
+   FILM GRAIN NOISE OVERLAY
+   ================================================================ */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* ================================================================
+   AMBIENT MESH ORB GRADIENTS
+   ================================================================ */
+.ambient-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.ambient-orb-1 {
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 60vw;
+  height: 60vw;
+  max-width: 800px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.12) 0%, transparent 70%);
+  filter: blur(80px);
+  animation: floatOrb1 25s ease-in-out infinite;
+}
+
+.ambient-orb-2 {
+  position: absolute;
+  bottom: 10%;
+  right: -5%;
+  width: 50vw;
+  height: 50vw;
+  max-width: 600px;
+  background: radial-gradient(circle, rgba(167, 139, 250, 0.08) 0%, transparent 70%);
+  filter: blur(80px);
+  animation: floatOrb2 30s ease-in-out infinite;
+}
+
+.ambient-orb-3 {
+  position: absolute;
+  top: 40%;
+  left: 30%;
+  width: 40vw;
+  height: 40vw;
+  max-width: 500px;
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.06) 0%, transparent 70%);
+  filter: blur(100px);
+  animation: floatOrb1 20s ease-in-out infinite reverse;
+}
+
+@keyframes floatOrb1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(60px, 40px) scale(1.08); }
+  66%       { transform: translate(-30px, 60px) scale(0.95); }
+}
+
+@keyframes floatOrb2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%       { transform: translate(-50px, -40px) scale(1.1); }
+}
+
+/* ----- BUTTONS ----- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 40px;
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+  position: relative;
+  z-index: 1;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #4f46e5 0%, #6366f1 50%, #818cf8 100%);
+  color: white;
+  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(99, 102, 241, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text-primary);
+  border: 1px solid var(--border-light);
+  backdrop-filter: blur(8px);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+/* ================================================================
+   SCROLL-ENTRY ANIMATIONS (IntersectionObserver dynamic staggered load)
+   ================================================================ */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-animate].in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ================================================================
+   CURSOR-TRACKING GLOW CARDS
+   ================================================================ */
+.glow-card {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  overflow: hidden;
+  transition: border-color 0.3s ease, background-color 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glow-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    400px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
+    rgba(99, 102, 241, 0.12),
+    transparent 45%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.glow-card:hover::after {
+  opacity: 1;
+}
+
+.glow-card:hover {
+  border-color: var(--border-hover);
+  background: var(--bg-card-hover);
+  transform: translateY(-2px);
+}
+
+/* Shimmer pulse for small status tags */
+@keyframes shimmerPulse {
+  0%, 100% { opacity: 0.6; }
+  50%       { opacity: 1; }
+}
+
+@keyframes subtleGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.05); }
+  50%       { box-shadow: 0 0 45px rgba(99, 102, 241, 0.15); }
+}
+
+/* ================================================================
+   SELECTION
+   ================================================================ */
+::selection {
+  background: rgba(99, 102, 241, 0.35);
+  color: white;
+}
+
+/* ================================================================
+   SCROLLBAR
+   ================================================================ */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-base);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #4f46e5, #818cf8);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #6366f1, #a5b4fc);
+}
+
+/* ================================================================
+   REDUCE MOTION
+   ================================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .ambient-orb-1, .ambient-orb-2, .ambient-orb-3 { animation: none; }
+  [data-animate] { opacity: 1; transform: none; }
+  .glow-card:hover { transform: none; }
+}

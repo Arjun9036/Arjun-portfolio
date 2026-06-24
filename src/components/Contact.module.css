@@ -1,0 +1,235 @@
+.contactSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  padding: 80px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.contactLeft {
+  display: flex;
+  flex-direction: column;
+}
+
+.sectionTag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--accent-light);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.contactHeading {
+  font-family: var(--font-heading);
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+}
+
+.contactDesc {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 480px;
+  margin-bottom: 32px;
+}
+
+.emailLink {
+  color: var(--text-primary);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: color 0.2s ease;
+  font-weight: 500;
+}
+
+.emailLink:hover {
+  color: var(--accent-light);
+}
+
+.contactButtons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ----- CONSOLE COMPILE FORM ----- */
+.contactRight {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.consoleForm {
+  width: 100%;
+  max-width: 460px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+.consoleHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 18px;
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.consoleTitle {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.consoleButtons {
+  display: flex;
+  gap: 6px;
+}
+
+.consoleDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.consoleForm:hover .consoleDot:nth-child(1) { background: #ef4444; }
+.consoleForm:hover .consoleDot:nth-child(2) { background: #f59e0b; }
+.consoleForm:hover .consoleDot:nth-child(3) { background: #10b981; }
+
+.consoleBody {
+  padding: 24px;
+  background: rgba(5, 7, 12, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.formRow {
+  display: flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.06);
+  padding-bottom: 6px;
+}
+
+.prompt {
+  color: #38bdf8;
+  font-weight: 500;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.consoleInput {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  outline: none;
+  flex-grow: 1;
+  padding: 2px 0;
+  width: 100%;
+}
+
+.consoleInput::placeholder {
+  color: var(--text-muted);
+}
+
+.consoleInput:focus::placeholder {
+  color: transparent;
+}
+
+.consoleTextArea {
+  resize: none;
+}
+
+.submitRow {
+  margin-top: 10px;
+}
+
+.submitBtn {
+  background: transparent;
+  border: 1px solid var(--accent-light);
+  color: var(--accent-light);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 0 10px rgba(99, 102, 241, 0.05);
+}
+
+.submitBtn:hover:not(:disabled) {
+  background: rgba(99, 102, 241, 0.1);
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.2);
+  border-color: #a5b4fc;
+  color: #fff;
+}
+
+.submitBtn:disabled {
+  opacity: 0.8;
+  border-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+
+.statusLogs {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 10px;
+  animation: pulse 1.5s infinite;
+}
+
+.statusLogsSuccess {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--green);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 10px;
+}
+
+.statusLogsError {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--red);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 10px;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+/* ----- RESPONSIVE ----- */
+@media (max-width: 1024px) {
+  .contactSection {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 60px 0;
+  }
+  .contactRight {
+    justify-content: center;
+  }
+  .consoleForm {
+    max-width: 100%;
+  }
+}

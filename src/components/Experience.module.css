@@ -1,0 +1,318 @@
+.expSection {
+  padding: 80px 0 40px 0;
+}
+
+.sectionHeader {
+  margin-bottom: 48px;
+}
+
+.sectionTag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--accent-light);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.sectionHeading {
+  font-family: var(--font-heading);
+  font-size: clamp(28px, 3.5vw, 40px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  max-width: 600px;
+}
+
+/* ----- TIMELINE SYSTEM ----- */
+.expGrid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.expLeft {
+  position: relative;
+}
+
+.timelineContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding-left: 36px;
+}
+
+.timelineRail {
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: 12px;
+  width: 1px;
+  background: linear-gradient(180deg,
+    rgba(99, 102, 241, 0.4) 0%,
+    rgba(99, 102, 241, 0.05) 100%
+  );
+}
+
+.timelineItem {
+  position: relative;
+  width: 100%;
+}
+
+.timelineNode {
+  position: absolute;
+  left: -32px;
+  top: 24px;
+  width: 17px;
+  height: 17px;
+  background: var(--bg-base);
+  border: 1px solid rgba(99, 102, 241, 0.4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.pulsingCore {
+  width: 7px;
+  height: 7px;
+  background-color: var(--accent-light);
+  border-radius: 50%;
+  box-shadow: 0 0 6px var(--accent-light);
+}
+
+.expCard {
+  padding: 24px 28px;
+}
+
+.expCardHeader {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.expTitle {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.expCompany {
+  font-size: 13px;
+  color: var(--accent-light);
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+.expDate {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.expList {
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+.expList li {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  position: relative;
+  padding-left: 14px;
+  margin-bottom: 8px;
+}
+
+.expList li::before {
+  content: "»";
+  position: absolute;
+  left: 0;
+  color: var(--accent-light);
+  font-weight: bold;
+}
+
+.expBadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+  padding-top: 14px;
+}
+
+.badge {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* ----- CORE STACK CARD ----- */
+.expRight {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.coreStackCard {
+  padding: 24px 28px;
+}
+
+.cardHeaderArea {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  padding-bottom: 12px;
+}
+
+.coreStackTitle {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.coreStackIcons {
+  display: flex;
+  gap: 8px;
+}
+
+.stackIconBlue {
+  color: var(--accent-light);
+  opacity: 0.8;
+}
+
+.stackCategories {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.stackCat {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.catLabel {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.catChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.chip {
+  background: rgba(99, 102, 241, 0.03);
+  border: 1px solid rgba(99, 102, 241, 0.1);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.chip:hover {
+  background: rgba(99, 102, 241, 0.08);
+  border-color: rgba(99, 102, 241, 0.25);
+  color: var(--text-primary);
+  transform: translateY(-1px);
+}
+
+/* ----- CERTIFICATIONS CARD ----- */
+.certCard {
+  padding: 24px 28px;
+}
+
+.certTitle {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  padding-bottom: 12px;
+}
+
+.certList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.certList li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.certStatusBadge {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  font-weight: 700;
+  color: var(--green);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  background: rgba(16, 185, 129, 0.05);
+  padding: 1px 4px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+
+.certName {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* ----- RESPONSIVE ----- */
+@media (max-width: 1024px) {
+  .expGrid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .timelineContainer {
+    padding-left: 20px;
+  }
+  .timelineRail {
+    left: 4px;
+  }
+  .timelineNode {
+    left: -20px;
+  }
+  .expCard {
+    padding: 18px 20px;
+  }
+  .expCardHeader {
+    flex-direction: column;
+    align-items: start;
+    gap: 8px;
+  }
+}
