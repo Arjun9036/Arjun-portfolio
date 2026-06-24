@@ -21,7 +21,7 @@ export default function ResumeBanner() {
         </p>
       </div>
       <a
-        href="https://drive.google.com/file/d/1dsPNdaHh-ifPDkMiu0Ytj68ZxKyn2xiY/view?usp=sharing"
+        href="https://drive.google.com/file/d/1OR9EdroaCedKZGWffSTsbnNtcqOzoVTd/view?usp=sharing"
         target="_blank"
         rel="noopener noreferrer"
         className="btn btn-primary"
